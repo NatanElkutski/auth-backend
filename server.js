@@ -10,7 +10,7 @@ dotenv.config();
 const User = require('./models/User');
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = 8080;
 
 app.use(express.json());
 app.use(cors());
@@ -29,6 +29,10 @@ mongoose
 
 app.listen(PORT, () => {
   console.log('Listening on port ' + PORT);
+});
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
 });
 
 app.post('/api/signup', async (req, res) => {
